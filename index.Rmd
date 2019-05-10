@@ -1,0 +1,149 @@
+---
+title: "Application of novel analytical methodologies in drug regulation"
+subtitle: "PhD proposal </br>"
+author: "Luis Pinheiro </br> Pharmacovigilance and Epidemiology Department"
+date: ""
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css:  xaringan-themer.css
+    nature:
+      titleSlideClass: [middle, left]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+class: left, top
+### Moving beyond buzzwords
+
+Rapidly **evolving technology** and **abundant collectable data** have allowed multiple developments which present **disruptive innovation potential**.
+
+Healthcare sector has lagged behind but is starting to harvest the benefits underlying the buzzwords:
+
+.pull-left[
+- Big data
+- Artificial intelligence
+- ML or predictive analytics<sup>1</sup>
+- Deep learning and Neural networkds
+]
+
+.pull-right[
+- Natural language processing/generation
+- Image pattern recognition 
+- Robotics
+- Blockchain
+]
+
+.footnote[
+<sup>1</sup> *I will refer to ML and Predictive analytics as synonyms. They are not the same but go hand-in-hand* 
+]
+---
+### The good old p<0.05 days
+
+- Inferential analytics
+  - Aim to identify and quantify causality 
+  - Statistical significance underpins inferential analytics<sup>1</sup> and anchors many (most) regulatory actions
+  - Established methods, e.g. post-hoc analyses discouraged as possibly fraudulant 
+  
+- Machine learning (Predictive analytics)
+  - Finds patterns,i.e. correlations in the data
+  - Decision making relies on performance not significance levels
+  - Choosing the best performing model is "best" practice
+
+.footnote[
+<sup>1</sup> *Abuse of p-value statistics is a contentious issue*
+]
+---
+### Human-Technology interface 
+
+Besides analytics, technological developments in the AI spectrum can bring efficiency and capacity gains:
+
+- NLP to extract data from unstrucured text (and possibly fit in an analytic pipeline)
+
+- Better visualisation of big data (standard reporting and interactivity)
+
+- Robotics to perform repeat and simple rule-based activities
+
+---
+
+### AI transformation - Leveraging ML in drug regulation  
+
+Hundreds of sucessful companies prove there is a space for these technologies. **This space is not in replacing traditional technologies**.
+
+Things we need to understand:
+- Where the value of predictive analytics in regulatory science is,
+
+- How to define and assess the acceptibility of individual models,
+
+- How to regulate models that will come from third parties,
+
+- How to cooperate with academia and other skilled research groups,
+
+- Ethical implementation of predictive analytics
+
+---
+### Big data taskforce
+
+Big data taskforce is scoping and planning how to address the issues mentioned. The Research Subgroup, in particular is looking at where to invest on much needed research. 
+
+In the next few years research will be commissioned, done in partnerships and internally.
+
+Building up internal knowledge and partnerships is fundamental: 
+- **to ensure role as independent regulators including of novel analytical technologies applied to medicine development and monitoring** 
+- **to adequately harvest these technologies in our internal procedures**.  
+
+---
+### PhD proposal
+
+My doctoral plan proposal **addresses research opportunities that the Big Data taksforce will invest in**. The doctoral plan aims to fill a gap in knowledge.
+
+It will be performed in a **leading University on health data analytics - Erasmus MC - with extensive experience in Predictive analytics and RWE**.
+
+**Prof. Peter Rijnbeek (Erasmus MC, OHDSI, EDHEN)** has kindly accepted to be the PhD coordinator. 
+
+In addition, Erasmus MC is a Dutch University, which allows me to work **in-loco** with other PhD students, researchers and Professors.
+
+---
+### Topics to brainstorm
+
+Machine Learning applications on drug safety
+- **Aim** - **1)** understand usefulness of models and **2)** develop a framework to implement in decision making.  
+  - Research comparing traditional methods to predictive analytics to understand the added benefit. Particularly interesting to model safety concerns that were discussed multiple times. 
+  - Research to model risk minimisation measures. Understand which are in line with predictive model insights and those that are not and compare results.
+ 
+Validation of third-party models
+- **Aim** - **3)** understand how to perform an adequate oversight of models developed by MAHs that affect health outcomes. 
+- Reseach in acceptability of models, such as transportability of model, transparency, etc.
+ 
+Use of unstructured information
+- **Aim** - **4)** to develop the skillset to extract information from unstructured text and use it in an analytical pipeline
+Research of semi-automated extraction of data in medicines regulation documents and use it in an analytical pipeline . 
+
+--- 
+### Personal motivation
+
+- I am an **early adopter**
+  - Done pilot studies and research in ML and NLP at Department level
+  - Am research oriented and innovation focused
+
+- I am a **coder**
+  - Throughout my career I've used: VB, Html, CSS, R, SAS, Python 
+  
+- I enjoy **academic environment**
+  - Worked six years in academia and enjoy 
+  
+- Learning is one of my **hobbies**
+  - Stanford Uni course on Data Science and ML
+  - deeplearning.ai course
+  - Datacamp coding courses
+  - Lead the code club at ema
+
+---
+
+
+
+<iframe src="https://giphy.com/embed/xT9IgzoKnwFNmISR8I" width="480" height="429" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/code-coding-seamless-xT9IgzoKnwFNmISR8I">via GIPHY</a></p>
