@@ -1,0 +1,236 @@
+---
+title: 'Efficacy and safety of cefepime: a meta-analysis'
+author: "Luis Pinheiro"
+date: "07/06/2019"
+output: 
+      html_document:
+            toc: true
+            toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Meta-analysis in R
+
+### Introduction
+
+There are several packages to conduct meta-analyses in R. In fact, there is an entire **Task View** on CRAN dedicated to packages for meta-analyses. I use a few different packages when conducting/re-running meta-analyses in R, but mainly `meta` and `metafor` which are the ones I will be presenting. 
+
+The purpose of this presentation is to describe the tools available in R to conduct meta-analyses. I will not to go into detail on *how* to conduct a meta-analysis. Nevertheless, we will touch upon some issues of interpretation of meta-analyses. 
+
+The presentation is built in R Markdown. I will upload the code to the code</>club folder. You are welcomed to reuse the code.
+
+### The systematic review
+
+Certainly, the most time consuming part of conducting a meta-analyses is the identification and selection of studies to include and the  collection of data.
+
+I will not address this part of conducting a meta-analysis. However, there are packages in R such as `bibliometrix` and `metagear` that can assist in this part of the process. 
+
+### The data
+
+The data used in this meta-analysis was collected from [Yahav et al, 2007](https://www.ncbi.nlm.nih.gov/pubmed/17448937). The Yahav meta-analysis suggests a risk of increased all-cause mortality in patients with febrile neutropenia taking cefepime as compared to other beta-lactams.
+
+This signal was discussed at the Pharmacovigilance Working Party in 2010/2011. During the assessment EMA re-ran the Yahav et al meta-analysis but did not conduct an independent systematic review and meta-analysis. On the other hand, FDA conducted a new meta-analysis. The safety concern has been refuted. 
+
+```{r preparation}
+# Load libraries but suppress warnings and messages
+suppressWarnings(suppressMessages(library(tidyverse))) 
+suppressWarnings(suppressMessages(library(meta)))
+# Read the file with studies 
+papers <- suppressWarnings(suppressMessages(read_csv("data.csv")))
+# See the data - in this case I will use the DT package for interactivity in my html output
+suppressWarnings(suppressMessages(library(DT)))
+papers %>% 
+      select(author, year, indication, severity_infections, comparator_drug, publication_type, 
+             cefepime_events_fatal, cefepime_total, comparator_events_fatal, comparator_total) %>% 
+      datatable()
+```
+
+## The `meta` package
+
+The `meta` package is a comprehensive package to run meta-analyses in R. It provides standard and some sophisticated methods:
+- fixed effect and random effects meta-analysis;
+- several plots (forest, funnel, Galbraith / radial, L'Abbe, Baujat, bubble);
+- statistical tests and trim-and-fill method to evaluate bias in meta-analysis;
+- import data from 'RevMan 5';
+- prediction interval, Hartung-Knapp and Paule-Mandel method for random effects model;
+- cumulative meta-analysis and leave-one-out meta-analysis;
+- meta-regression;
+- generalised linear mixed models;
+- produce forest plot summarising several (subgroup) meta-analyses.
+
+Some `meta` code is a wrapper around the other package we will discuss - `metafor` and some functionalities in `meta` only work if `metafor` is installed. 
+
+One of the biggest advantages of `meta` as compared to `metafor` is the ease of use and simplicity of the arguments. For instance, to do a subgroup meta-analysis, `meta` uses the argument `byvar` whereas in `metafor` you need to create multiple meta-analysis (according to the levels of the subgrouping variable) and combine them.
+
+### Basic meta-analysis
+
+We'll start by running a simple meta-analysis including all data.
+
+When studies have small sample sizes and the number of events is small in these studies the inverse variance method may not be appropriate; in these circumstances, it may be preferable to use the Mantel-Haenszel method. 
+
+Peto’s method may produce serious under-estimates when the odds ratio is far from unity (large treatment effects) . If the number of studies to be combined is small, but the within-study sample sizes per study are large, the inverse-weighted method should be used. If there are many studies to combine, but the within-study sample size in each study is small, the Mantel-Haenszel method is preferred. 
+
+Our first summary effect measure will be RR using the MH method. We don't know anything about heterogeneity, but we don't need to decide now as `meta` always calculates assuming both fixed effect and random effects.
+
+With `meta` you can decide certain settings, for instance, the format of the forest plot, which can be revman5 or jama styled.
+
+You'll see that the choice of package is a matter of tradeoffs. `meta` for instance has simpler arguments and plots a forest plot neatly with minimum code, however, the plot does not resize to plot area as the forest plot in `metafor` does.
+
+```{r meta basic, fig.width=12, fig.height=12}
+# Read the file with studies
+# Personalise visualisation
+# settings.meta("revman5") # or "jama"
+
+# Simple meta-analysis (ungrouped)
+meta_basic <-  metabin(event.e = cefepime_events_fatal,
+                       n.e = cefepime_total, 
+                       event.c = comparator_events_fatal,
+                       n.c = comparator_total,
+                       data = papers,
+                       sm = "RR",
+                       studlab = paste(author, year),
+                       allstudies = TRUE,
+                       title = "Meta-analysis of all-cause mortality with cefepime")
+
+forest(meta_basic) # minimal code, arguments from metabin get passed
+```
+
+Before we go any further, we may want to consider using the Peto's method, that does not require corrections for zero counts.
+
+### Updating an analysis
+
+Updating an analysis is simple, the `update` function needs only a few arguments. In this case, because we are changing the method to "Peto" the summary effect measure needs to change to "OR" as well.
+
+```{r update basic}
+update(meta_basic, sm = "OR", method = "Peto")
+```
+
+### Heterogeneity
+
+Intuitively, I would have expected the results to show some heterogeneity but the I2 statistic does not suggest this. Noticeably, there are biases in the calculation of the I2, thus diagnostics of heteregeneity and influence analyses should always be conducted.
+
+Here we'll use the full arsenal of methods: funnel, metabias, baujat, l'Abbé and radial plot.
+
+```{r diagnostics}
+funnel(meta_basic)
+metabias(meta_basic)
+baujat(meta_basic)
+labbe(meta_basic, studlab = TRUE)
+radial.meta(meta_basic)
+
+```
+
+### Subgrouped meta-analysis
+
+Subgrouping helps explain heterogeneity. In this case we have no indication of heterogeneity being a significant issue, but we can subgroup to understand the characteristics of the concern, i.e. where all-cause mortality is ocurring.
+
+First we subgroup by indication. In `meta` we just pass a variable to the argument `byvar`.
+
+```{r meta subgroup indication, fig.width=12, fig.height=16}
+# Meta-analysis subgrouped by indication
+meta_indication <-  metabin(event.e = cefepime_events_fatal,
+                       n.e = cefepime_total, 
+                       event.c = comparator_events_fatal,
+                       n.c = comparator_total,
+                       data = papers,
+                       sm = "RR",
+                       studlab = paste(author, year),
+                       byvar = indication,
+                       allstudies = TRUE,
+                       title = "Meta-analysis of all-cause mortality with cefepime, subgrouped by indication")
+
+forest(meta_indication)
+```
+We can then subgroup by comparator drug.
+
+```{r meta subgroup comparator, fig.width=12, fig.height=20}
+# Meta-analysis subgrouped by comparator drug
+meta_comparator <-  metabin(event.e = cefepime_events_fatal,
+                       n.e = cefepime_total, 
+                       event.c = comparator_events_fatal,
+                       n.c = comparator_total,
+                       data = papers,
+                       sm = "RR",
+                       studlab = paste(author, year),
+                       byvar = comparator_drug,
+                       allstudies = TRUE,
+                       title = "Meta-analysis of all-cause mortality with cefepime, subgrouped by comparator")
+forest(meta_comparator)
+```
+
+And by severity of indication, which was extracted from the drug dose.
+
+```{r meta subgroup severity, fig.width=12, fig.height=14}
+# Meta-analysis subgrouped by severity
+meta_severity <-  metabin(event.e = cefepime_events_fatal,
+                       n.e = cefepime_total, 
+                       event.c = comparator_events_fatal,
+                       n.c = comparator_total,
+                       data = papers,
+                       sm = "RR",
+                       studlab = paste(author, year),
+                       byvar = severity_infections,
+                       allstudies = TRUE,
+                       title = "Meta-analysis of all-cause mortality with cefepime, subgrouped by severity of infections")
+
+forest(meta_severity)
+```
+### Sensitivity analyses
+
+With `meta` we can run a cumulative meta-analysis and a leave-one-out meta-analysis as per below. Both functions have a `sortvar` function to reorder the studies. By default the ordering is the same as the order of the data frame. One interesting reordering criteria is by trial size. In this case, we would do `metainf(meta_basic, sortvar = cefepime_total + comparator_total)`.
+
+```{r cumulative and leave-one-out}
+# cumulative meta-analysis
+metacum(meta_basic)
+metainf(meta_basic)
+```
+
+### Meta-regression
+
+Another functionality available in `meta` is a meta-regression. The meta-regression helps explain the results as a function of some explanatory variables. The simplest implementation of the `metareg` function takes a `meta` object and a formula `~ var_1 + var_2 + ... + var_n`.
+
+```{r meta regression}
+metareg(meta_basic, ~ as.factor(papers$indication) + as.factor(severity_infections) + as.factor(comparator_drug))
+```
+
+## The `metafor` package
+
+The `meta` and `metafor` packages are very similar in terms of functionalities. One significant difference is how these packages tackle subgroups. `meta` allows passing a variable to the `byvar` argument which gets plotted when calling forest plot. `metafor` has a different approach. Either multiple subsetted meta-analyses are conducted and plotted in the same plot or a `mods` variable can be passed to the meta-analysis. 
+
+### Basic meta-analysis with `metafor`
+
+The arguments are less user friendly in `metafor`.
+
+```{r metafor arguments}
+library(metafor)
+args(rma)
+```
+
+```{r metafor basic, fig.width=11, fig.height=11}
+metafor_basic <- metafor::rma(ai = cefepime_events_fatal,
+             n1i = cefepime_total,
+             ci = comparator_events_fatal,
+             n2i = comparator_total,
+             data = papers,
+             measure = "RR",
+             slab = paste(author, year))
+
+
+metafor::forest(metafor_basic, showweights = T, atransf = exp)
+
+```
+
+The basic plot in `metafor` isn't very appealing.  Editing the plot in `metafor` is similar to the base graph in R: information is added stepwise, but the relative positions need to be defined. 
+
+### Heterogeneity and diagnostic plots with `metafor`
+
+The diagnostic plots and plots detailing heterogeneity are however, much better.
+
+```{r metafor diagnostics}
+metafor::funnel(metafor_basic, main = "Random effects model")
+metafor::radial(metafor_basic)
+
+```

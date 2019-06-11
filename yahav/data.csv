@@ -1,0 +1,42 @@
+author,year,indication_description,indication,location,cefepime_dose,severity_infections,comparator_drug,comparator_dose,additional_drugs,publication_type,cefepime_events_fatal,cefepime_total,comparator_events_fatal,comparator_total
+Aoun et al,1997,Febrile neutropenia,Neutropenic fever,Multicentre Belgium,2 g three times a day,severe,Ceftazidime,Ceftazidime 2 g three times a day,Vancomycin 30 mg/kg per day,Unpublished,5,54,3,57
+Aufiero et al,1997,"Lower respiratory tract infections, community acquired",Other and mixed infections,Multicentre Italy,1 g twice a day,mild,Ceftazidime,Ceftazidime 1 g three times a day,NA,Journal,3,57,0,29
+Barckow and Schwigon,1993,Lower respiratory tract infections,Other and mixed infections,Multicentre Germany,2 g twice a day,moderate,Cefotaxime,Cefotaxime 2 g three times a day,NA,Journal,13,41,4,21
+Beaucaire et al,1999,Hospital-acquired pneumonia,Pneumonia,Multicentre France,2 g twice a day,moderate,Ceftazidime,Ceftazidime 2 g three times a day,Amikacin 7·5 mg/ kg twice a day,Journal,29,141,21,134
+Biron et al,1998,Febrile neutropenia,Neutropenic fever,Multicentre France,2 g twice a day,moderate,Imipenem-cilastatin,Imipenem-cilastatin 1 g three times a day,NA,Journal,10,200,4,195
+Bohme et al,1998,Febrile neutropenia,Neutropenic fever,Germany,2 g three times a day,severe,Piperacillin-tazobactam,Piperacillin-tazobactam 4·5 g three times a day,NA,Journal,2,49,2,51
+Bonfitto et al,1999,Community-acquired pneumonia,Pneumonia,Multicentre Italy,2 g twice a day,moderate,Ceftazidime,Ceftazidime 2 g three times a day,NA,Journal,0,74,0,66
+Bow et al,2006,Febrile neutropenia,Neutropenic fever,"Multicentre USA, Canada, Australia",2 g three times a day,severe,Piperacillin-tazobactam,Piperacillin-tazobactam 4·5 g four times a day,NA,Journal,15,263,8,265
+Chandrasekar and Arnow,2000,Febrile neutropenia,Neutropenic fever,Multicentre USA,2 g three times a day,severe,Ceftazidime,Ceftazidime 2 g three times a day,NA,Journal,22,143,10,133
+Cherif et al,2004,Febrile neutropenia,Neutropenic fever,Multicentre Sweden,2 g three times a day,severe,Imipenem-cilastatin,Imipenem-cilastatin 500 mg four times a day,NA,Journal,5,105,5,102
+Chuang et al,2002,Febrile neutropenia,Neutropenic fever,Taiwan,25 mg/kg twice a day,moderate,Ceftazidime,Ceftazidime 25 mg/kg twice a day,NA,Journal,3,48,2,48
+Cordero et al,2001,Community-acquired pneumonia,Pneumonia,Multicentre Spain,2 g twice a day,moderate,Cefotaxime,Cefotaxime 2 g three times a day,NA,Journal,1,84,2,76
+Cordonnier et al,1997,Febrile neutropenia,Neutropenic fever,Multicentre Spain,2 g twice a day,moderate,Ceftazidime,Ceftazidime 2 g three times a day,Amikacin 7·5 mg/ kg twice a day,Journal,13,242,4,111
+Cornely et al (a),2001,Febrile neutropenia,Neutropenic fever,Multicentre Germany,2 g twice a day,moderate,Meropenem,Meropenem 1 g three times a day,Third combination arm excluded from review,Conference proceeding,8,202,10,202
+Cornely et al (b),2002,Febrile neutropenia,Neutropenic fever,Germany,2 g three times a day,severe,Ceftriaxone,Ceftriaxone 2 g once a day,Gentamicin 5 mg/ kg once a day,Journal,1,100,2,107
+Edelstein et al,1991,Community-acquired pneumonia,Pneumonia,USA,1 g twice a day,mild,Ceftazidime,Ceftazidime 1 g three times a day,NA,Journal,3,43,0,22
+Erman et al,2001,Febrile neutropenia,Neutropenic fever,Multicentre Turkey,2 g twice a day,moderate,Ceftazidime,Ceftazidime 2 g three times a day,Amikacin 15 mg/ kg per day,Journal,8,98,11,97
+Gentry and Rodriguez- Gomez,1991,"Skin, surgical wound, and complicated urinary tract infections",Other and mixed infections,"USA, Mexico",2 g twice a day,moderate,Ceftazidime,Ceftazidime 2 g three times a day,NA,Journal,1,59,2,53
+Glauser et al,1997,Febrile neutropenia,Neutropenic fever,Multicentre Europe,2 g three times a day,severe,Ceftazidime,Ceftazidime 2 g three times a day,Glycopeptides given to less than 1% of patients,Unpublished,8,139,9,142
+Gomez et al,2001,Febrile neutropenia,Neutropenic fever,Spain,2 g twice a day,moderate,Piperacillin-tazobactam,Piperacillin-tazobactam 4·5 g three times a day,Amikacin          15 mg/kg per day,Conference proceeding,13,86,5,100
+Grossman et al,1999,Community-acquired pneumonia,Pneumonia,Multicentre Canada,2 g twice a day,moderate,Ceftriaxone,Ceftriaxone 1 g twice a day,NA,Journal,7,76,7,75
+Hoepelman et al,1993,"Lower respiratory tract infections, urinary tract infections, skin infections, bacteraemia",Other and mixed infections,Multicentre Europe,2 g twice a day,moderate,Ceftazidime,Ceftazidime 2 g three times a day,NA,Journal,32,173,26,175
+Huang et al,2002,"Urinary tract infections, lower respiratory tract infections, urinary tract infections,  bacteraemia, intra-abdominal infections",Other and mixed infections,Taiwan,2 g twice a day,moderate,Ceftazidime,Ceftazidime 2 g three times a day,NA,Journal,2,26,0,26
+Kebudi et al,2001,Febrile neutropenia,Neutropenic fever,Turkey,50 mg/kg three times a day,severe,Ceftazidime,Ceftazidime 33 mg/kg three times a day,NA,Journal,0,32,0,31
+Leophonte et al,1993,"Lower respiratory tract infections, community acquired",Other and mixed infections,Multicentre Europe,1 g twice a day,mild,Ceftazidime,Ceftazidime 1 g three times a day,NA,Journal,7,87,4,44
+McCabe et al (a),1996,Pneumonia,Pneumonia,"Multicentre USA, Puerto Rico, Canada",1 g twice a day,mild,Ceftazidime,Ceftazidime 1 g three times a day,NA,Journal,17,225,11,111
+McCabe et al (b),1996,Pneumonia,Pneumonia,Multicentre USA,1 g twice a day,mild,Ceftazidime,Ceftazidime 1 g three times a day,NA,Journal,4,65,3,34
+Mustafa et al,2001,Febrile neutropenia,Neutropenic fever,USA,50 mg/kg three times a day,severe,Ceftazidime,Ceftazidime 50 mg/kg three times a day,NA,Journal,2,49,0,55
+Newton et al,1993,Gynaecological  infections,Urinary tract/gynaecological infections,Multicentre USA,2 g twice a day,moderate,Cefotaxime,Cefotaxime 2 g three times a day,NA,Journal,0,159,0,72
+O'Ryan et al,1996,Meningitis,Other and mixed infections,"Multicentre Chile, Panama, Mexico",50 mg/kg three times a day,severe,Ceftriaxone,Ceftriaxone 50 mg/kg twice a day,NA,Journal,7,103,5,105
+Ponce-de-Leon et al,1999,"Lower respiratory tract infections, community, urinary tract infections, skin infections, bacteraemia",Other and mixed infections,Mexico,1 g twice a day,mild,Ceftazidime,Ceftazidime 1 g three times a day,NA,Journal,1,25,2,25
+Raad et al,2003,Febrile neutropenia,Neutropenic fever,USA,2 g three times a day,severe,Imipenem-cilastatin,Imipenem-cilastatin 500 mg four times a day,Glycopeptides added to 25%; aminoglycosides to 6% of patients,Journal,7,127,5,124
+Ramphal et al,1997,Febrile neutropenia,Neutropenic fever,USA,2 g three times a day,severe,Ceftazidime,Ceftazidime 2 g three times a day,NA,Journal,6,45,4,45
+Saez-Llorens et al,1995,Meningitis,Other and mixed infections,Panama,50 mg/kg three times a day,severe,Cefotaxime,Cefotaxime 50 mg/kg four times a day,NA,Journal,2,43,4,47
+Schaad et al,1998,Urinary tract infections,Urinary tract/gynaecological infections,"Multicentre Europe, Israel",50 mg/kg three times a day,severe,Ceftazidime,Ceftazidime 50 mg/kg three times a day,NA,Journal,0,86,5,100
+Schrank et al,1995,Bacteraemia,Other and mixed infections,USA,2 g three times a day,severe,Ceftazidime,Ceftazidime 2 g three times a day,NA,Journal,1,13,2,15
+Tamura et al,2002,Febrile neutropenia,Neutropenic fever,Multicentre Japan,1–2 g twice a day,moderate,"Imipenem-cilastatin, panipenem or meropenem","Imipenem-cilastatin, panipenem, or meropenem 0·5–1 g twice a day",Third combination arm excluded from review,Journal,2,42,1,41
+Wang et al,1999,Febrile neutropenia,Neutropenic fever,Taiwan,2 g three times a day,severe,Ceftazidime,Ceftazidime 2 g three times a day,NA,Journal,0,19,2,22
+Willis et al,1998,Pneumonia,Pneumonia,Multicentre USA,2 g twice a day,moderate,Cefotaxime,Cefotaxime 2 g three times a day,NA,Journal,5,54,2,55
+Zanetti et al,2003,Hospital-acquired pneumonia,Pneumonia,Multicentre Europe,2 g three times a day,severe,Imipenem-cilastatin,Imipenem-cilastatin 500 mg four times a day,NA,Journal,41,132,37,138
+Zervos and Nelson,1998,Community-acquired pneumonia,Pneumonia,Multicentre USA,2 g twice a day,moderate,Ceftriaxone,Ceftriaxone 1 g twice a day,NA,Journal,3,59,1,56
